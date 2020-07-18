@@ -3,3 +3,11 @@
 *with multiple test files, used for         *
 *revising some core features of TS          *
 *********************************************
+
+*********************************************
+*Important concepts:                        *
+*Type Guards, Type Castings,                *
+*Discrimination unions, Property Indexes    *
+*Function overloads, Optional chaining (?)  *
+*Nullish Coalescing (??)                    *
+*********************************************
