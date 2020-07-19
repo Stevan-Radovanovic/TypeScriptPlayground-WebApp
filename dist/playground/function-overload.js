@@ -5,4 +5,5 @@ function add(one, two) {
     }
     return one + two;
 }
-const result = add(5, 6);
+const result = add("5", 6);
+console.log(result);
