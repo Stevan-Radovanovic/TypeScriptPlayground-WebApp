@@ -40,8 +40,8 @@ class ProjectInput {
         const title = (_a = this.projectTitle) === null || _a === void 0 ? void 0 : _a.value;
         const desc = (_b = this.projectDescription) === null || _b === void 0 ? void 0 : _b.value;
         const people = +((_c = this.projectPeople) === null || _c === void 0 ? void 0 : _c.value);
-        if (!Helper.validatePrimitive(title, {}) ||
-            !Helper.validatePrimitive(desc, {}) ||
+        if (!Helper.validatePrimitive(title, { minLength: 4 }) ||
+            !Helper.validatePrimitive(desc, { minLength: 5 }) ||
             !Helper.validatePrimitive(people, { min: 0 }))
             return;
         return [title, desc, people];
@@ -65,8 +65,6 @@ class Helper {
             }
         }
         if (typeof value === "number") {
-            console.log("Here");
-            console.log(configuration.min);
             if (value === null || value === undefined || value === 0)
                 return false;
             if (configuration.max !== undefined && value > configuration.max) {
@@ -75,7 +73,6 @@ class Helper {
             if (configuration.min !== undefined && value < configuration.min) {
                 return false;
             }
-            console.log("Here 2");
         }
         return true;
     }
