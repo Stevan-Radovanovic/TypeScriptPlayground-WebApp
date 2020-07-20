@@ -1,6 +1,6 @@
-import ConsoleLog from "./console-log.js";
-import Project from "./project-model.js";
-import { State } from "./project-state.js";
+import ConsoleLog from "../helpers/console-log.js";
+import Project from "../models/project-model.js";
+import { State } from "../global/project-state.js";
 
 export default class ProjectList {
   content: HTMLTemplateElement;

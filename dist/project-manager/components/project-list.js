@@ -1,5 +1,5 @@
-import ConsoleLog from "./console-log.js";
-import { State } from "./project-state.js";
+import ConsoleLog from "../helpers/console-log.js";
+import { State } from "../global/project-state.js";
 export default class ProjectList {
     constructor(type) {
         this.type = type;

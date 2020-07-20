@@ -1,4 +1,4 @@
-import ConsoleLog from "./console-log.js";
+import ConsoleLog from "../helpers/console-log.js";
 class GlobalState {
     constructor() {
         this.projects = [];

@@ -1,5 +1,5 @@
-import Project from "./project-model.js";
-import ConsoleLog from "./console-log.js";
+import Project from "../models/project-model.js";
+import ConsoleLog from "../helpers/console-log.js";
 
 class GlobalState {
   private projects: Project[] = [];

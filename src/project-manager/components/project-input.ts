@@ -1,6 +1,6 @@
-import ConsoleLog from "./console-log.js";
-import { Helper } from "./helper.js";
-import { State } from "./project-state.js";
+import ConsoleLog from "../helpers/console-log.js";
+import { Helper } from "../helpers/helper.js";
+import { State } from "../global/project-state.js";
 //Project Input Class
 export default class ProjectInput {
   content: HTMLTemplateElement;
