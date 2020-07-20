@@ -3,7 +3,7 @@ import { consoleLogString } from "./console-log.js";
 
 class GlobalState {
   private projects: Project[] = [];
-
+  private listeners: Function[] = [];
   private static instance: GlobalState;
 
   public static get Instance() {
@@ -16,6 +16,10 @@ class GlobalState {
 
   private constructor() {}
 
+  public addListener(func: Function) {
+    this.listeners.push(func);
+  }
+
   public addProject(title: string, desc: string, people: number) {
     this.projects.push({
       id: Math.random().toString(),
@@ -23,6 +27,9 @@ class GlobalState {
       description: desc,
       people: people,
     });
+    for (const listenerFn of this.listeners) {
+      listenerFn([...this.projects]);
+    }
   }
 }
 

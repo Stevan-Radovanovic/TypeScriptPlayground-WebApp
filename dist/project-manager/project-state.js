@@ -2,6 +2,7 @@ import { consoleLogString } from "./console-log.js";
 class GlobalState {
     constructor() {
         this.projects = [];
+        this.listeners = [];
     }
     static get Instance() {
         if (!this.instance) {
@@ -10,6 +11,9 @@ class GlobalState {
         }
         return this.instance;
     }
+    addListener(func) {
+        this.listeners.push(func);
+    }
     addProject(title, desc, people) {
         this.projects.push({
             id: Math.random().toString(),
@@ -17,6 +21,9 @@ class GlobalState {
             description: desc,
             people: people,
         });
+        for (const listenerFn of this.listeners) {
+            listenerFn([...this.projects]);
+        }
     }
 }
 export const State = GlobalState.Instance;

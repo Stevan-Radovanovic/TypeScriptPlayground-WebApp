@@ -1,9 +1,12 @@
 import { consoleLogString } from "./console-log.js";
+import Project from "./project-model.js";
+import { State } from "./project-state.js";
 
 export default class ProjectList {
   content: HTMLTemplateElement;
   renderContentHere: HTMLDivElement;
   element: HTMLElement;
+  assignedProjects: Project[] = [];
 
   constructor(private type: "active" | "finished") {
     console.log("%c Initializing Project List", consoleLogString);
@@ -11,6 +14,18 @@ export default class ProjectList {
       "project-list"
     )! as HTMLTemplateElement;
     this.renderContentHere = document.getElementById("app")! as HTMLDivElement;
+
+    State.addListener((projects: Project[]) => {
+      this.assignedProjects = projects;
+      const list = document.getElementById(
+        `${this.type}-projects-list`
+      )! as HTMLUListElement;
+      for (const project of this.assignedProjects) {
+        const item = document.createElement("li");
+        item.textContent = project.title;
+        list.appendChild(item);
+      }
+    });
 
     const importedContent = document.importNode(this.content.content, true);
     this.element = importedContent.firstElementChild as HTMLElement;
