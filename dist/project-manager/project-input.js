@@ -1,5 +1,6 @@
 import { consoleLogString } from "./console-log.js";
 import { Helper } from "./helper.js";
+import { State } from "./project-state.js";
 export default class ProjectInput {
     constructor() {
         console.log("%c Initializing Project Form", consoleLogString);
@@ -20,6 +21,7 @@ export default class ProjectInput {
         event === null || event === void 0 ? void 0 : event.preventDefault();
         const userInput = this.gatherInput();
         if (userInput) {
+            State.addProject(userInput[0], userInput[1], userInput[2]);
             alert("Project added");
             this.clearInputs();
         }

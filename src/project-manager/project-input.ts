@@ -1,5 +1,6 @@
 import { consoleLogString } from "./console-log.js";
 import { Helper } from "./helper.js";
+import { State } from "./project-state.js";
 //Project Input Class
 export default class ProjectInput {
   content: HTMLTemplateElement;
@@ -39,6 +40,7 @@ export default class ProjectInput {
     event?.preventDefault();
     const userInput = this.gatherInput();
     if (userInput) {
+      State.addProject(userInput[0], userInput[1], userInput[2]);
       alert("Project added");
       this.clearInputs();
     } else {

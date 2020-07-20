@@ -1,8 +1,20 @@
 import Project from "./project-model.js";
-import ProjectInput from "./project-input.js";
+import { consoleLogString } from "./console-log.js";
 
 class GlobalState {
   private projects: Project[] = [];
+
+  private static instance: GlobalState;
+
+  public static get Instance() {
+    if (!this.instance) {
+      console.log("%c Creating Global State", consoleLogString);
+      this.instance = new GlobalState();
+    }
+    return this.instance;
+  }
+
+  private constructor() {}
 
   public addProject(title: string, desc: string, people: number) {
     this.projects.push({
@@ -13,3 +25,5 @@ class GlobalState {
     });
   }
 }
+
+export const State = GlobalState.Instance;
