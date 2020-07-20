@@ -1,4 +1,4 @@
-import { consoleLogString } from "./console-log.js";
+import ConsoleLog from "./console-log.js";
 class GlobalState {
     constructor() {
         this.projects = [];
@@ -6,7 +6,7 @@ class GlobalState {
     }
     static get Instance() {
         if (!this.instance) {
-            console.log("%c Creating Global State", consoleLogString);
+            ConsoleLog.consoleLogInitialization("GlobalState");
             this.instance = new GlobalState();
         }
         return this.instance;

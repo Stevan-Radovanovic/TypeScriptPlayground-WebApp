@@ -1,4 +1,4 @@
-import { consoleLogString } from "./console-log.js";
+import ConsoleLog from "./console-log.js";
 import { Helper } from "./helper.js";
 import { State } from "./project-state.js";
 //Project Input Class
@@ -10,7 +10,7 @@ export default class ProjectInput {
   projectPeople: HTMLInputElement;
 
   constructor() {
-    console.log("%c Initializing Project Form", consoleLogString);
+    ConsoleLog.consoleLogInitialization(this.constructor.name);
     this.content = document.getElementById(
       "project-input"
     )! as HTMLTemplateElement;
@@ -20,7 +20,6 @@ export default class ProjectInput {
     const element = importedContent.firstElementChild as HTMLFormElement;
     element.id = "user-input";
 
-    console.log("%c Binding Form Properties", consoleLogString);
     this.projectTitle = element.querySelector("#title")! as HTMLInputElement;
     this.projectDescription = element.querySelector(
       "#description"
@@ -36,7 +35,6 @@ export default class ProjectInput {
   }
 
   submitHandler() {
-    console.log("%c Validating form", consoleLogString);
     event?.preventDefault();
     const userInput = this.gatherInput();
     if (userInput) {
@@ -49,14 +47,12 @@ export default class ProjectInput {
   }
 
   clearInputs() {
-    console.log("%c Reseting form", consoleLogString);
     this.projectDescription.value = "";
     this.projectTitle.value = "";
     this.projectPeople.value = "";
   }
 
   gatherInput(): [string, string, number] | void {
-    console.log("%c Gathering Input", consoleLogString);
     const title = this.projectTitle?.value;
     const desc = this.projectDescription?.value;
     const people = +this.projectPeople?.value;

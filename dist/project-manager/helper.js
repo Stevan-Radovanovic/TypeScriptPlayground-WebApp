@@ -1,5 +1,7 @@
+import ConsoleLog from "./console-log.js";
 export class Helper {
     static validatePrimitive(value, configuration) {
+        ConsoleLog.consoleLogValidation(value.toString());
         if (typeof value === "string") {
             if (value === null || value === undefined || value.trim().length === 0)
                 return false;

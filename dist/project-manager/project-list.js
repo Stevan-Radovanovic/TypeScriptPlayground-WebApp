@@ -1,10 +1,10 @@
-import { consoleLogString } from "./console-log.js";
+import ConsoleLog from "./console-log.js";
 import { State } from "./project-state.js";
 export default class ProjectList {
     constructor(type) {
         this.type = type;
         this.assignedProjects = [];
-        console.log("%c Initializing Project List", consoleLogString);
+        ConsoleLog.consoleLogInitialization(this.constructor.name);
         this.content = document.getElementById("project-list");
         this.renderContentHere = document.getElementById("app");
         State.addListener((projects) => {

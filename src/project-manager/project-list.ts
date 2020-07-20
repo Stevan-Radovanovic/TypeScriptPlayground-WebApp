@@ -1,4 +1,4 @@
-import { consoleLogString } from "./console-log.js";
+import ConsoleLog from "./console-log.js";
 import Project from "./project-model.js";
 import { State } from "./project-state.js";
 
@@ -9,7 +9,7 @@ export default class ProjectList {
   assignedProjects: Project[] = [];
 
   constructor(private type: "active" | "finished") {
-    console.log("%c Initializing Project List", consoleLogString);
+    ConsoleLog.consoleLogInitialization(this.constructor.name);
     this.content = document.getElementById(
       "project-list"
     )! as HTMLTemplateElement;

@@ -1,5 +1,5 @@
 import Project from "./project-model.js";
-import { consoleLogString } from "./console-log.js";
+import ConsoleLog from "./console-log.js";
 
 class GlobalState {
   private projects: Project[] = [];
@@ -8,7 +8,8 @@ class GlobalState {
 
   public static get Instance() {
     if (!this.instance) {
-      console.log("%c Creating Global State", consoleLogString);
+      ConsoleLog.consoleLogInitialization("GlobalState");
+
       this.instance = new GlobalState();
     }
     return this.instance;

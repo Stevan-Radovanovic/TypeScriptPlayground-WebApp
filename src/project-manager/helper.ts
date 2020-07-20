@@ -1,3 +1,5 @@
+import ConsoleLog from "./console-log.js";
+
 //Validation object Interface
 interface ValidationConfiguration {
   minLength?: number;
@@ -13,6 +15,8 @@ export class Helper {
     value: string | number,
     configuration: ValidationConfiguration
   ): boolean {
+    ConsoleLog.consoleLogValidation(value.toString());
+
     if (typeof value === "string") {
       if (value === null || value === undefined || value.trim().length === 0)
         return false;
