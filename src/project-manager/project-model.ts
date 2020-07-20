@@ -3,4 +3,5 @@ export default interface Project {
   title: string;
   description: string;
   people: number;
+  status: "active" | "finished";
 }

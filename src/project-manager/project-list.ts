@@ -16,10 +16,16 @@ export default class ProjectList {
     this.renderContentHere = document.getElementById("app")! as HTMLDivElement;
 
     State.addListener((projects: Project[]) => {
-      this.assignedProjects = projects;
-      const list = document.getElementById(
+      this.assignedProjects = projects.filter((project) => {
+        if (type === "active") {
+          return project.status === "active";
+        }
+        return project.status === "finished";
+      });
+      let list = document.getElementById(
         `${this.type}-projects-list`
       )! as HTMLUListElement;
+      list.innerHTML = "";
       for (const project of this.assignedProjects) {
         const item = document.createElement("li");
         item.textContent = project.title;

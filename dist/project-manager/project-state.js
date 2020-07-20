@@ -20,6 +20,7 @@ class GlobalState {
             title: title,
             description: desc,
             people: people,
+            status: "active",
         });
         for (const listenerFn of this.listeners) {
             listenerFn([...this.projects]);

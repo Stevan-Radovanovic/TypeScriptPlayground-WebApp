@@ -8,8 +8,14 @@ export default class ProjectList {
         this.content = document.getElementById("project-list");
         this.renderContentHere = document.getElementById("app");
         State.addListener((projects) => {
-            this.assignedProjects = projects;
-            const list = document.getElementById(`${this.type}-projects-list`);
+            this.assignedProjects = projects.filter((project) => {
+                if (type === "active") {
+                    return project.status === "active";
+                }
+                return project.status === "finished";
+            });
+            let list = document.getElementById(`${this.type}-projects-list`);
+            list.innerHTML = "";
             for (const project of this.assignedProjects) {
                 const item = document.createElement("li");
                 item.textContent = project.title;
