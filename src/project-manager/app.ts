@@ -1,3 +1,6 @@
 import ProjectInput from "./project-input.js";
+import ProjectList from "./project-list.js";
 
-const projectInput = new ProjectInput();
+new ProjectInput();
+new ProjectList("active");
+new ProjectList("finished");
