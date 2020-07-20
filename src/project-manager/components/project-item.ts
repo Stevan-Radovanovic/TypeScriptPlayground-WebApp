@@ -11,11 +11,10 @@ export default class ProjectItem {
     this.content = document.getElementById(
       "single-project"
     )! as HTMLTemplateElement;
-    this.renderContentHere = document.getElementById("app")! as HTMLDivElement;
+    this.renderContentHere = document.getElementById(hostID)! as HTMLDivElement;
 
     const importedContent = document.importNode(this.content.content, true);
     this.element = importedContent.firstElementChild as HTMLLIElement;
-    console.log(this.element);
     this.element.id = this.project.id;
 
     this.element.querySelector("h2")!.textContent = this.project.title;
