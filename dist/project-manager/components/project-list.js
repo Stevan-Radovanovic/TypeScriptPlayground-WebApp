@@ -1,5 +1,6 @@
 import ConsoleLog from "../helpers/console-log.js";
 import { State } from "../global/project-state.js";
+import ProjectItem from "./project-item.js";
 export default class ProjectList {
     constructor(type) {
         this.type = type;
@@ -17,9 +18,7 @@ export default class ProjectList {
             let list = document.getElementById(`${this.type}-projects-list`);
             list.innerHTML = "";
             for (const project of this.assignedProjects) {
-                const item = document.createElement("li");
-                item.textContent = project.title;
-                list.appendChild(item);
+                new ProjectItem(this.element.querySelector("ul").id, project);
             }
         });
         const importedContent = document.importNode(this.content.content, true);

@@ -1,6 +1,7 @@
 import ConsoleLog from "../helpers/console-log.js";
 import Project from "../models/project-model.js";
 import { State } from "../global/project-state.js";
+import ProjectItem from "./project-item.js";
 
 export default class ProjectList {
   content: HTMLTemplateElement;
@@ -27,9 +28,7 @@ export default class ProjectList {
       )! as HTMLUListElement;
       list.innerHTML = "";
       for (const project of this.assignedProjects) {
-        const item = document.createElement("li");
-        item.textContent = project.title;
-        list.appendChild(item);
+        new ProjectItem(this.element.querySelector("ul")!.id, project);
       }
     });
 
