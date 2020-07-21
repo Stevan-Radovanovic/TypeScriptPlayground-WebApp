@@ -48,5 +48,7 @@ export default class ProjectList {
     }
     drop(event) {
         ConsoleLog.consoleLogEvent(event.type);
+        const id = event.dataTransfer.getData("text/plain");
+        State.moveProject(id, this.type);
     }
 }

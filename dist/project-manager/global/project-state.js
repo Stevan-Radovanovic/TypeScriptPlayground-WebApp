@@ -26,5 +26,14 @@ class GlobalState {
             listenerFn([...this.projects]);
         }
     }
+    moveProject(id, type) {
+        const project = this.projects.find((project) => project.id === id);
+        if (project) {
+            project.status = type;
+            for (const listenerFn of this.listeners) {
+                listenerFn([...this.projects]);
+            }
+        }
+    }
 }
 export const State = GlobalState.Instance;

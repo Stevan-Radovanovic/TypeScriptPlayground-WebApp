@@ -67,5 +67,7 @@ export default class ProjectList implements DragTarget {
 
   drop(event: DragEvent): void {
     ConsoleLog.consoleLogEvent(event.type);
+    const id = event.dataTransfer!.getData("text/plain");
+    State.moveProject(id, this.type);
   }
 }

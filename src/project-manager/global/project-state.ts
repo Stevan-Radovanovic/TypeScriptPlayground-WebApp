@@ -33,6 +33,16 @@ class GlobalState {
       listenerFn([...this.projects]);
     }
   }
+
+  public moveProject(id: string, type: "active" | "finished") {
+    const project = this.projects.find((project) => project.id === id);
+    if (project) {
+      project.status = type;
+      for (const listenerFn of this.listeners) {
+        listenerFn([...this.projects]);
+      }
+    }
+  }
 }
 
 export const State = GlobalState.Instance;
