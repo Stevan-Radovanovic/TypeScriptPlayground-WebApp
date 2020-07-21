@@ -35,6 +35,8 @@ export default class ProjectItem implements Draggable {
 
   dragStart(event: DragEvent): void {
     ConsoleLog.consoleLogEvent(event.type);
+    event.dataTransfer!.setData("text/plain", this.project.id);
+    event.dataTransfer!.effectAllowed = "move";
   }
 
   dragEnd(event: DragEvent): void {

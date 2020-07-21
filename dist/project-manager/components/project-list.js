@@ -27,6 +27,26 @@ export default class ProjectList {
         this.element.querySelector("ul").id = `${this.type}-projects-list`;
         this.element.querySelector("h2").textContent =
             this.type[0].toUpperCase() + this.type.slice(1) + " projects";
+        this.addListeners();
         this.renderContentHere.insertAdjacentElement("beforeend", this.element);
+    }
+    addListeners() {
+        this.element.addEventListener("dragover", this.dragOver.bind(this));
+        this.element.addEventListener("dragleave", this.dragLeave.bind(this));
+        this.element.addEventListener("drop", this.drop.bind(this));
+    }
+    dragOver(event) {
+        if (event.dataTransfer && event.dataTransfer.types[0] === "text/plain") {
+            event.preventDefault();
+            ConsoleLog.consoleLogEvent(event.type);
+            this.element.querySelector("ul").classList.add("droppable");
+        }
+    }
+    dragLeave(event) {
+        ConsoleLog.consoleLogEvent(event.type);
+        this.element.querySelector("ul").classList.remove("droppable");
+    }
+    drop(event) {
+        ConsoleLog.consoleLogEvent(event.type);
     }
 }
