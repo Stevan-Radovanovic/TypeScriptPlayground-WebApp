@@ -1,4 +1,10 @@
-import ConsoleLog from "../helpers/console-log.js";
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.State = void 0;
+const console_log_js_1 = __importDefault(require("../helpers/console-log.js"));
 class GlobalState {
     constructor() {
         this.projects = [];
@@ -6,7 +12,7 @@ class GlobalState {
     }
     static get Instance() {
         if (!this.instance) {
-            ConsoleLog.consoleLogInitialization("GlobalState");
+            console_log_js_1.default.consoleLogInitialization("GlobalState");
             this.instance = new GlobalState();
         }
         return this.instance;
@@ -36,4 +42,4 @@ class GlobalState {
         }
     }
 }
-export const State = GlobalState.Instance;
+exports.State = GlobalState.Instance;

@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deletePlayer = exports.updatePlayer = exports.postPlayer = exports.getPlayers = void 0;
+const getPlayers = (req, res, next) => { };
+exports.getPlayers = getPlayers;
+const postPlayer = (req, res, next) => { };
+exports.postPlayer = postPlayer;
+const updatePlayer = (req, res, next) => { };
+exports.updatePlayer = updatePlayer;
+const deletePlayer = (req, res, next) => { };
+exports.deletePlayer = deletePlayer;

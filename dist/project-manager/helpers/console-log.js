@@ -1,4 +1,6 @@
-export default class ConsoleLog {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class ConsoleLog {
     static consoleLogInitialization(name) {
         console.log("%c Initializing " + name, this.consoleLog1);
     }
@@ -9,6 +11,7 @@ export default class ConsoleLog {
         console.log("%c Event activated " + name, this.consoleLog3);
     }
 }
+exports.default = ConsoleLog;
 ConsoleLog.consoleLog1 = "color: pink; background-color: black; font-weight: bold";
 ConsoleLog.consoleLog2 = "color: yellow; background-color: black; font-weight: bold";
 ConsoleLog.consoleLog3 = "color: green; background-color: black; font-weight: bold";

@@ -1,9 +1,14 @@
-import ConsoleLog from "../helpers/console-log.js";
-import { Helper } from "../helpers/helper.js";
-import { State } from "../global/project-state.js";
-export default class ProjectInput {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const console_log_js_1 = __importDefault(require("../helpers/console-log.js"));
+const helper_js_1 = require("../helpers/helper.js");
+const project_state_js_1 = require("../global/project-state.js");
+class ProjectInput {
     constructor() {
-        ConsoleLog.consoleLogInitialization(this.constructor.name);
+        console_log_js_1.default.consoleLogInitialization(this.constructor.name);
         this.content = document.getElementById("project-input");
         this.renderContentHere = document.getElementById("app");
         const importedContent = document.importNode(this.content.content, true);
@@ -19,7 +24,7 @@ export default class ProjectInput {
         event === null || event === void 0 ? void 0 : event.preventDefault();
         const userInput = this.gatherInput();
         if (userInput) {
-            State.addProject(userInput[0], userInput[1], userInput[2]);
+            project_state_js_1.State.addProject(userInput[0], userInput[1], userInput[2]);
             alert("Project added");
             this.clearInputs();
         }
@@ -37,10 +42,11 @@ export default class ProjectInput {
         const title = (_a = this.projectTitle) === null || _a === void 0 ? void 0 : _a.value;
         const desc = (_b = this.projectDescription) === null || _b === void 0 ? void 0 : _b.value;
         const people = +((_c = this.projectPeople) === null || _c === void 0 ? void 0 : _c.value);
-        if (!Helper.validatePrimitive(title, { minLength: 4 }) ||
-            !Helper.validatePrimitive(desc, { minLength: 5 }) ||
-            !Helper.validatePrimitive(people, { min: 0 }))
+        if (!helper_js_1.Helper.validatePrimitive(title, { minLength: 4 }) ||
+            !helper_js_1.Helper.validatePrimitive(desc, { minLength: 5 }) ||
+            !helper_js_1.Helper.validatePrimitive(people, { min: 0 }))
             return;
         return [title, desc, people];
     }
 }
+exports.default = ProjectInput;

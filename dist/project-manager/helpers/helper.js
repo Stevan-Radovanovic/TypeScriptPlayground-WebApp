@@ -1,7 +1,13 @@
-import ConsoleLog from "./console-log.js";
-export class Helper {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Helper = void 0;
+const console_log_js_1 = __importDefault(require("./console-log.js"));
+class Helper {
     static validatePrimitive(value, configuration) {
-        ConsoleLog.consoleLogValidation(value.toString());
+        console_log_js_1.default.consoleLogValidation(value.toString());
         if (typeof value === "string") {
             if (value === null || value === undefined || value.trim().length === 0)
                 return false;
@@ -30,3 +36,4 @@ export class Helper {
         return true;
     }
 }
+exports.Helper = Helper;
