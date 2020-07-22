@@ -24,14 +24,17 @@ const updatePlayer = (req, res, next) => {
         id: db_1.database[index].id,
         position: db_1.database[index].position,
         name: db_1.database[index].name,
-        jerseyNumber: req.body.jerseyNumber,
+        jerseyNumber: req.body.jerseyNumber
+            ? req.body.jerseyNumber
+            : db_1.database[index].jerseyNumber,
     };
     res.status(201).json({ newPlayer: db_1.database[index] });
 };
 exports.updatePlayer = updatePlayer;
 const deletePlayer = (req, res, next) => {
     const id = req.params.id;
-    db_1.database.filter((value) => value.id !== id);
+    const index = db_1.database.findIndex((value) => value.id === id);
+    db_1.database.splice(index, 1);
     res.status(201).json({ message: "Deleted a player." });
 };
 exports.deletePlayer = deletePlayer;
