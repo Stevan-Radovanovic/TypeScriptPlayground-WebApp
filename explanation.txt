@@ -1,7 +1,18 @@
 *********************************************
-*This is the playground part of the project,* 
+*Note: To start a certain project, rename   * 
+*it's html file to index.html, and run the  *
+*npm start command                          *
+*********************************************
+
+*********************************************
+*Playground - part of the project,          * 
 *with multiple test files, used for         *
 *revising some core features of TS          *
+*********************************************
+
+*********************************************
+*Project Manager - part of the project,     * 
+*which contains a drag&drop web app         *
 *********************************************
 
 *********************************************
