@@ -1,7 +1,9 @@
 import express from "express";
 import playerRoutes from "./routes/players";
-
+import { json } from "body-parser";
 const app = express();
+
+app.use(json());
 
 app.use(playerRoutes);
 

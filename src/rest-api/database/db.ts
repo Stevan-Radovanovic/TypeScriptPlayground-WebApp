@@ -26,3 +26,5 @@ const database: Player[] = [
     position: "AM",
   },
 ];
+
+export default database;

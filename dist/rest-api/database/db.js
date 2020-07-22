@@ -26,3 +26,4 @@ const database = [
         position: "AM",
     },
 ];
+exports.default = database;
