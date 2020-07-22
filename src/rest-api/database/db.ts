@@ -1,6 +1,6 @@
 import Player from "../models/player";
 
-const database: Player[] = [
+let database: Player[] = [
   {
     id: Math.random().toString(),
     jerseyNumber: 7,
@@ -27,4 +27,4 @@ const database: Player[] = [
   },
 ];
 
-export default database;
+export { database };

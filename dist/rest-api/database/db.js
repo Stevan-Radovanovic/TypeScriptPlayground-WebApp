@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const database = [
+exports.database = void 0;
+let database = [
     {
         id: Math.random().toString(),
         jerseyNumber: 7,
@@ -26,4 +27,4 @@ const database = [
         position: "AM",
     },
 ];
-exports.default = database;
+exports.database = database;

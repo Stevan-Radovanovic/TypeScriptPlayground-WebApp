@@ -5,7 +5,7 @@ const app = express();
 
 app.use(json());
 
-app.use(playerRoutes);
+app.use("/players", playerRoutes);
 
 app.use(
   (
