@@ -8,12 +8,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
     />
+    <script src="./dist/search-address/app.js" defer></script>
   </head>
   <body>
     <br />
     <br />
     <div class="columns is-centered">
-      <div class="column is-4" id="map">
+      <div class="column is-6" id="map">
         <p class="title">Please enter an address</p>
       </div>
     </div>
@@ -25,11 +26,12 @@
               <input
                 class="input is-primary"
                 type="text"
+                id="input"
                 placeholder="Enter Adress"
               />
             </div>
           </div>
-          <button class="button is-primary is-light">Submit</button>
+          <button class="button is-primary is-light" id="button">Submit</button>
         </div>
       </div>
     </div>
