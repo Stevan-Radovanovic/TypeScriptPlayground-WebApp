@@ -26,7 +26,7 @@ function searchAddressHandler(event: Event) {
     ],
     view: new ol.View({
       center: ol.proj.fromLonLat([coordinates.lat, coordinates.lng]),
-      zoom: 16,
+      zoom: 4,
     }),
   });
 

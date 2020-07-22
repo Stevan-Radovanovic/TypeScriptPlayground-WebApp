@@ -19,7 +19,7 @@ function searchAddressHandler(event) {
         ],
         view: new ol.View({
             center: ol.proj.fromLonLat([coordinates.lat, coordinates.lng]),
-            zoom: 16,
+            zoom: 4,
         }),
     });
     const view = document.getElementsByClassName("ol-viewport")[0];

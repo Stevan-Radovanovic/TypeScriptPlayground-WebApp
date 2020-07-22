@@ -16,6 +16,16 @@
 *********************************************
 
 *********************************************
+*Search Address - part of the project,      * 
+*which uses OpenLayers API                  *
+*********************************************
+
+*********************************************
+*Rest Api - a small test REST API made with * 
+*Node.js and TypeScript                     *
+*********************************************
+
+*********************************************
 *Important concepts:                        *
 *Type Guards, Type Castings,                *
 *Discrimination unions, Property Indexes    *
